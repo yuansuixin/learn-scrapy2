@@ -12,7 +12,7 @@ class HuaSpider(scrapy.Spider):
     url = 'http://www.521609.com/daxuexiaohua/list3'
 
     def parse(self, response):
-        li_list = response.xpath("//*[@id='content']/div[1]/ul/li[1]")
+        li_list = response.xpath("//div[@class="index_img list_center"]/ul/li")
         for li in li_list:
             item = XiaohuaItem()
             name = li.xpath('.//img/@alt').extract_first()
